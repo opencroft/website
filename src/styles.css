@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-bg-primary: #060612;
+  --color-bg-secondary: #0a0a1f;
+  --color-bg-card: #0f0f2e;
+  --color-bg-card-hover: #151540;
+  --color-border: #1a1a3e;
+  --color-border-bright: #2a2a5e;
+  --color-accent: #3b82f6;
+  --color-accent-bright: #60a5fa;
+  --color-accent-dim: #1d4ed8;
+  --color-text-primary: #f0f0ff;
+  --color-text-secondary: #7a7ab0;
+  --color-text-muted: #555577;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-bright), #a78bfa, var(--color-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-border {
+  box-shadow:
+    0 0 0 1px var(--color-border),
+    0 0 20px -4px color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to bottom, var(--color-border-bright) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-bright) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.15;
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 38%, #000 38%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 38%, #000 38%, transparent 100%);
+}
+
+.dots-bg {
+  background-image: radial-gradient(var(--color-border-bright) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(ellipse 78% 65% at 50% 45%, #000 28%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 65% at 50% 45%, #000 28%, transparent 100%);
+}
+
+.diag-bg {
+  background-image: repeating-linear-gradient(-45deg, var(--color-border-bright) 0 1px, transparent 1px 16px);
+  opacity: 0.12;
+  -webkit-mask-image: radial-gradient(ellipse 85% 68% at 50% 45%, #000 28%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 68% at 50% 45%, #000 28%, transparent 100%);
+}
